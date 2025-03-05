@@ -5,10 +5,6 @@ from src.factorial import factorial
 def test_factorial_1_falla():
     assert factorial(1) == 2  # Esto debe fallar
 
-@pytest.mark.xfail(reason="Este test debe fallar intencionalmente")
-def test_factorial_1_falla():
-    assert factorial(1) == 2  # Falla
-
 def test_factorial_1_pasa():
     assert factorial(1) == 1  # Pasa
 
