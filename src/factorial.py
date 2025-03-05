@@ -16,7 +16,6 @@ def factorial(n):
         TypeError: Si n no es un entero.
         ValueError: Si n es negativo.
     """
-    
     if not isinstance(n, int):
         raise TypeError("El número debe ser un entero")
     if n < 0:
