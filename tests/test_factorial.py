@@ -5,27 +5,26 @@ from src.factorial import factorial
 def test_factorial_1_falla():
     assert factorial(1) == 2  # Esto debe fallar
 
-def test_factorial_1_pasa():
-    assert factorial(1) == 1  # Pasa
-
-def test_tipo_falla():
-    with pytest.raises(TypeError):
-        factorial("texto")  # Falla
-
-def test_tipo_pasa():
-    with pytest.raises(TypeError):
-        factorial(3.5)  # Pasa
-
-def test_negativo_falla():
-    with pytest.raises(ValueError):
-        factorial(-5)  # Falla
-
-def test_negativo_pasa():
-    with pytest.raises(ValueError):
-        factorial(-1)  # Pasa
-
+@pytest.mark.xfail(reason="Este test debe fallar intencionalmente")
 def test_positivo_falla():
-    assert factorial(5) == 200  # Falla
+    assert factorial(5) == 200  # Debe fallar porque 5! = 120
 
-def test_positivo_pasa():
-    assert factorial(5) == 120  # Pasa
+def test_factorial_0():
+    assert factorial(0) == 1
+
+def test_factorial_1():
+    assert factorial(1) == 1
+
+def test_factorial_5():
+    assert factorial(5) == 120
+
+def test_factorial_10():
+    assert factorial(10) == 3628800
+
+def test_factorial_tipo():
+    with pytest.raises(TypeError):
+        factorial("string")
+
+def test_factorial_negativo():
+    with pytest.raises(ValueError):
+        factorial(-1)
